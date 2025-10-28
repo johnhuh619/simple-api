@@ -75,6 +75,8 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
             set -e
+            cd /home/ubuntu/simple-api/docker
+            
             echo "📦 Pulling latest image..."
             docker pull ghcr.io/${{ github.repository }}:latest
 

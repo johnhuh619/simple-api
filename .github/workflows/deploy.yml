@@ -76,17 +76,18 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
             set -e
-            cd /home/ubuntu/simple-api/docker
-            
             echo "📦 Pulling latest image..."
             docker pull ghcr.io/${{ github.repository }}:latest
 
-            echo "🛑 Stopping and removing old container..."
+            echo "🛑 Stopping old container..."
             docker stop simple-api || true
             docker rm simple-api || true
 
-            echo "🚀 Starting new container..."
-            docker-compose up -d
+            echo "🚀 Running new container..."
+            docker run -d \
+              --name simple-api \
+              -p 8080:8080 \
+              ghcr.io/${{ github.repository }}:latest
 
             echo "⏱ Waiting for app to start..."
             sleep 10
@@ -95,7 +96,8 @@ jobs:
             if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
               echo "✅ Deployment succeeded!"
             else
-              echo "❌ Deploy failed! Rolling back..."
-              docker-compose down
+              echo "❌ Deployment failed! Rolling back..."
+              docker stop simple-api || true
+              docker rm simple-api || true
               exit 1
             fi

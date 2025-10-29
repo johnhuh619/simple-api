@@ -1,5 +1,7 @@
-# Build Stage (멀티스테이지 빌드)
-FROM gradle:8.10.2-jdk21 AS Builder
+# =======================
+# 🧱 1. Build Stage
+# =======================
+FROM gradle:8.10.2-jdk21 AS builder
 WORKDIR /app
 
 # Gradle 캐시 최적화
@@ -9,17 +11,27 @@ RUN gradle dependencies --no-daemon || true
 
 # 실제 코드 복사 및 빌드
 COPY . .
-RUN ./gradlew bootJar --no-daemon
+RUN ./gradlew clean bootJar --no-daemon
 
-# Run Stage (경량 런타임)
+# =======================
+# ⚙️ 2. Extract Layers
+# =======================
+FROM eclipse-temurin:21-jdk-jammy AS extractor
+WORKDIR /app
+COPY --from=builder /app/build/libs/*.jar app.jar
+RUN java -Djarmode=layertools -jar app.jar extract
+
+# =======================
+# 🚀 3. Run Stage
+# =======================
 FROM eclipse-temurin:21-jdk-jammy
 WORKDIR /app
 
-# 빌드 산출무 복사
-COPY --from=builder /app/build/libs/*.jar app.jar
+# 레이어별로 분리된 파일 복사
+COPY --from=extractor /app/dependencies/ ./dependencies/
+COPY --from=extractor /app/snapshot-dependencies/ ./snapshot-dependencies/
+COPY --from=extractor /app/spring-boot-loader/ ./spring-boot-loader/
+COPY --from=extractor /app/application/ ./application/
 
-# Spring Boot Layered JAR 구조 지원 (3.5+)
-RUN java -Djarmode=layertools -jar app.jar extract
-
-# 애플리케이션 실행
+EXPOSE 8080
 ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]

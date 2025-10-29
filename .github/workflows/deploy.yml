@@ -95,7 +95,7 @@ jobs:
             if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
               echo "✅ Deployment succeeded!"
             else
-              echo "❌ Deployment failed! Rolling back..."
+              echo "❌ Deploy failed! Rolling back..."
               docker-compose down
               exit 1
             fi

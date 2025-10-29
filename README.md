@@ -1,4 +1,4 @@
-# Simple API 배포 연습 노트
+# Simple API [배포 과정을 구현]
 
 ## 프로젝트 한눈에 보기
 - Spring Boot 3.5와 Java 21을 사용하는 간단한 REST API입니다(`build.gradle`에서 확인).

@@ -32,7 +32,6 @@ tasks.named("test") {
 }
 
 tasks.named("bootJar") {
-    enabled = true
     mainClass.set("com.jaewon.practice.simpleapi.SimpleApiApplication")
 }
 

@@ -7,7 +7,7 @@ WORKDIR /app
 # Gradle 캐시 최적화
 COPY build.gradle settings.gradle ./
 COPY gradle ./gradle
-RUN gradle dependencies --no-daemon || true
+RUN ./gradlew dependencies --no-daemon || true
 
 # 실제 코드 복사 및 빌드
 COPY . .

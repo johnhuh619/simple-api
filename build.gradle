@@ -40,7 +40,7 @@ tasks.named('test') {
 }
 
 bootJar {
-    enabled = True
+    enabled = true
 }
 
 jar {

@@ -45,56 +45,11 @@ jobs:
           --data '{
             "blocks": [
               {
-                "type": "header",
-                "text": {
-                  "type": "plain_text",
-                  "text": "🚀 CI/CD Pipeline Started",
-                  "emoji": true
-                }
-              },
-              {
-                "type": "section",
-                "fields": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Repository:*\n`${{ github.repository }}`"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Branch:*\n`${{ github.ref_name }}`"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Triggered by:*\n${{ github.actor }}"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Commit:*\n`${{ github.sha }}`.substring(0,7)"
-                  }
-                ]
-              },
-              {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*Progress:* 🟩🟩⬜️⬜️ 25%"
+                  "text": "*🚀 Deploy Started* by ${{ github.actor }}\n🟩⬜️⬜️⬜️ Build Complete"
                 }
-              },
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "✅ *Step 1/4:* Build Complete"
-                }
-              },
-              {
-                "type": "context",
-                "elements": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "⏱️ Started at: <!date^'$(date +%s)'^{date_short_pretty} {time}|now>"
-                  }
-                ]
               }
             ]
           }' \
@@ -133,48 +88,11 @@ jobs:
           --data '{
             "blocks": [
               {
-                "type": "header",
-                "text": {
-                  "type": "plain_text",
-                  "text": "🐳 Docker Build Complete",
-                  "emoji": true
-                }
-              },
-              {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*Progress:* 🟩🟩🟩⬜️ 50%"
+                  "text": "*🐳 Docker Image Pushed*\n🟩🟩⬜️⬜️ Deploying..."
                 }
-              },
-              {
-                "type": "section",
-                "fields": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "✅ *Step 1:* Build JAR"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "✅ *Step 2:* Docker Push"
-                  }
-                ]
-              },
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "📦 Image pushed to `ghcr.io/${{ github.repository }}:latest`"
-                }
-              },
-              {
-                "type": "context",
-                "elements": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "🔄 Next: Deploying to EC2..."
-                  }
-                ]
               }
             ]
           }' \
@@ -192,49 +110,11 @@ jobs:
           --data '{
             "blocks": [
               {
-                "type": "header",
-                "text": {
-                  "type": "plain_text",
-                  "text": "🚢 Deployment in Progress",
-                  "emoji": true
-                }
-              },
-              {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*Progress:* 🟩🟩🟩🟨 75%"
+                  "text": "*🚢 Deploying to EC2*\n🟩🟩🟩⬜️ Running health check..."
                 }
-              },
-              {
-                "type": "section",
-                "fields": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "✅ *Step 1:* Build JAR"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "✅ *Step 2:* Docker Push"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "🔄 *Step 3:* Deploying..."
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "⏳ *Step 4:* Pending"
-                  }
-                ]
-              },
-              {
-                "type": "context",
-                "elements": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "🖥️ Target: EC2 Production Server"
-                  }
-                ]
               }
             ]
           }' \
@@ -283,71 +163,18 @@ jobs:
           --data '{
             "blocks": [
               {
-                "type": "header",
-                "text": {
-                  "type": "plain_text",
-                  "text": "✨ Deployment Successful!",
-                  "emoji": true
-                }
-              },
-              {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*Progress:* 🟩🟩🟩🟩 100%"
+                  "text": "*✅ Deploy Complete*\n🟩🟩🟩🟩 Live on Production"
                 }
-              },
-              {
-                "type": "section",
-                "fields": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "✅ *Step 1:* Build JAR"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "✅ *Step 2:* Docker Push"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "✅ *Step 3:* EC2 Deploy"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "✅ *Step 4:* Health Check"
-                  }
-                ]
-              },
-              {
-                "type": "divider"
-              },
-              {
-                "type": "section",
-                "fields": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Repository:*\n`${{ github.repository }}`"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Deployed by:*\n${{ github.actor }}"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Branch:*\n`${{ github.ref_name }}`"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Environment:*\nProduction 🚀"
-                  }
-                ]
               },
               {
                 "type": "context",
                 "elements": [
                   {
                     "type": "mrkdwn",
-                    "text": "⏱️ Completed at: <!date^'$(date +%s)'^{date_short_pretty} {time}|now> | 🔗 <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow>"
+                    "text": "<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Logs>"
                   }
                 ]
               }
@@ -364,59 +191,11 @@ jobs:
           --data '{
             "blocks": [
               {
-                "type": "header",
-                "text": {
-                  "type": "plain_text",
-                  "text": "🚨 Deployment Failed!",
-                  "emoji": true
-                }
-              },
-              {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "❌ *Deployment encountered an error*"
+                  "text": "*🚨 Deploy Failed*\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Check Logs Now>"
                 }
-              },
-              {
-                "type": "section",
-                "fields": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Repository:*\n`${{ github.repository }}`"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Triggered by:*\n${{ github.actor }}"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Branch:*\n`${{ github.ref_name }}`"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Status:*\n🔴 Failed"
-                  }
-                ]
-              },
-              {
-                "type": "divider"
-              },
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "⚠️ *Action Required:* Check logs immediately\n🔗 <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Failed Workflow>"
-                }
-              },
-              {
-                "type": "context",
-                "elements": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "💡 Tip: Previous version is still running"
-                  }
-                ]
               }
             ]
           }' \

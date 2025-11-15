@@ -42,22 +42,59 @@ jobs:
       - name: Notify Progress 25%
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data '{ 
+          --data '{
             "blocks": [
               {
-                  "type": "header",
-                  "text": { "type": "plain_text", "text": "🚀 Deploy Status" } },
-              { 
-                "type":  "section",
-                "fields": [
-                  { "type": "mrkdwn", "text": "*Progress:*\n25%"},
-                  { "type": "mrkdwn", "text": "*Started by:*\n${{ github.actor }}" }
-                ]
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "🚀 CI/CD Pipeline Started",
+                  "emoji": true
+                }
               },
-              { "type": "divider" },
               {
                 "type": "section",
-                "text": { "type": "mrkdwn", "text": "1️⃣ Build Complete" }
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Repository:*\n`${{ github.repository }}`"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Branch:*\n`${{ github.ref_name }}`"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Triggered by:*\n${{ github.actor }}"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Commit:*\n`${{ github.sha }}`.substring(0,7)"
+                  }
+                ]
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*Progress:* 🟩🟩⬜️⬜️ 25%"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "✅ *Step 1/4:* Build Complete"
+                }
+              },
+              {
+                "type": "context",
+                "elements": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "⏱️ Started at: <!date^'$(date +%s)'^{date_short_pretty} {time}|now>"
+                  }
+                ]
               }
             ]
           }' \
@@ -93,60 +130,118 @@ jobs:
       - name: Notify Progress 50%
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data "{
-          "blocks": [
+          --data '{
+            "blocks": [
               {
-                  "type": "header",
-                  "text": { "type": "plain_text", "text": "🚀 Deploy Status" } },
-              { 
-                "type":  "section",
-                "fields": [
-                  { "type": "mrkdwn", "text": "*Progress:*\n50%"},
-                  { "type": "mrkdwn", "text": "*Started by:*\n${{ github.actor }}" }
-                ]
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "🐳 Docker Build Complete",
+                  "emoji": true
+                }
               },
-              { "type": "divider" },
               {
                 "type": "section",
-                "text": { "type": "mrkdwn", "text": "2️⃣ Docker image pushed successfully" }
-              }
-            ]
-          }" \
-          $SLACK_WEBHOOK_URL
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build-and-push
-    steps:
-      # deploy start
-      - name: Notify Progress 75%
-        run: |
-          curl -X POST -H 'Content-type: application/json' \
-          --data "{
-          "blocks": [
-              {
-                  "type": "header",
-                  "text": { "type": "plain_text", "text": "🚀 Deploy Status" } },
-              { 
-                "type":  "section",
-                "fields": [
-                  { "type": "mrkdwn", "text": "*Progress:*\n75%"},
-                  { "type": "mrkdwn", "text": "*Started by:*\n${{ github.actor }}" }
-                ]
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*Progress:* 🟩🟩🟩⬜️ 50%"
+                }
               },
-              { "type": "divider" },
               {
                 "type": "section",
-                "text": { "type": "mrkdwn", "text": "3️⃣ Deploying to EC2 }
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "✅ *Step 1:* Build JAR"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "✅ *Step 2:* Docker Push"
+                  }
+                ]
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "📦 Image pushed to `ghcr.io/${{ github.repository }}:latest`"
+                }
+              },
+              {
+                "type": "context",
+                "elements": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "🔄 Next: Deploying to EC2..."
+                  }
+                ]
               }
             ]
-          }" \
+          }' \
           $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-      # deploy
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    steps:
+      - name: Notify Progress 75%
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "🚢 Deployment in Progress",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*Progress:* 🟩🟩🟩🟨 75%"
+                }
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "✅ *Step 1:* Build JAR"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "✅ *Step 2:* Docker Push"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "🔄 *Step 3:* Deploying..."
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "⏳ *Step 4:* Pending"
+                  }
+                ]
+              },
+              {
+                "type": "context",
+                "elements": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "🖥️ Target: EC2 Production Server"
+                  }
+                ]
+              }
+            ]
+          }' \
+          $SLACK_WEBHOOK_URL
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
       - name: SSH to AWS EC2 and deploy container
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -180,39 +275,151 @@ jobs:
               docker rm simple-api || true
               exit 1
             fi
-      # ----------------------------------------
-      # 🟢 SUCCESS MESSAGE (100%)
-      # ----------------------------------------
+
       - name: Notify deploy success
         if: success()
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data "{
+          --data '{
             "blocks": [
-                {
-                    "type": "header",
-                    "text": { "type": "plain_text", "text": "🎉 Deployment Successful!" } },
-                { 
-                  "type":  "section",
-                  "fields": [
-                    { "type": "mrkdwn", "text": "*Progress:*\n100%"},
-                    { "type": "mrkdwn", "text": "*Started by:*\n${{ github.actor }}" }
-                  ]
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "✨ Deployment Successful!",
+                  "emoji": true
                 }
-              ]
-            }" \
-            $SLACK_WEBHOOK_URL
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*Progress:* 🟩🟩🟩🟩 100%"
+                }
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "✅ *Step 1:* Build JAR"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "✅ *Step 2:* Docker Push"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "✅ *Step 3:* EC2 Deploy"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "✅ *Step 4:* Health Check"
+                  }
+                ]
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Repository:*\n`${{ github.repository }}`"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Deployed by:*\n${{ github.actor }}"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Branch:*\n`${{ github.ref_name }}`"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Environment:*\nProduction 🚀"
+                  }
+                ]
+              },
+              {
+                "type": "context",
+                "elements": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "⏱️ Completed at: <!date^'$(date +%s)'^{date_short_pretty} {time}|now> | 🔗 <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow>"
+                  }
+                ]
+              }
+            ]
+          }' \
+          $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-      # ----------------------------------------
-      # 🔴 FAILURE MESSAGE
-      # ----------------------------------------
       - name: Notify deploy failure
         if: failure()
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data "{\"text\": \"🔴 Deployment failed! Check logs immediately.\"}" \
+          --data '{
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "🚨 Deployment Failed!",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "❌ *Deployment encountered an error*"
+                }
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Repository:*\n`${{ github.repository }}`"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Triggered by:*\n${{ github.actor }}"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Branch:*\n`${{ github.ref_name }}`"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Status:*\n🔴 Failed"
+                  }
+                ]
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "⚠️ *Action Required:* Check logs immediately\n🔗 <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Failed Workflow>"
+                }
+              },
+              {
+                "type": "context",
+                "elements": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "💡 Tip: Previous version is still running"
+                  }
+                ]
+              }
+            ]
+          }' \
           $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

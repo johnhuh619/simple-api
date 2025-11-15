@@ -42,7 +42,25 @@ jobs:
       - name: Notify Progress 25%
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data "{\"text\": \"🔵 *Progress 25%* — Build completed\"}" \
+          --data '{ 
+            "blocks": [
+              {
+                  "type": "header",
+                  "text": { "type": "plain_text", "text": "🚀 Deploy Status" } },
+              { 
+                "type":  "section",
+                "fields": [
+                  { "type": "mrkdwn", "text": "*Progress:*\n25%"},
+                  { "type": "mrkdwn", "text": "*Started by:*\n${{ github.actor }}" }
+                ]
+              },
+              { "type": "divider" },
+              {
+                "type": "section",
+                "text": { "type": "mrkdwn", "text": "1️⃣ Build Complete" }
+              }
+            ]
+          }' \
           $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -75,7 +93,25 @@ jobs:
       - name: Notify Progress 50%
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data "{\"text\": \"🟡 *Progress 50%* — Docker image pushed\"}" \
+          --data "{
+          "blocks": [
+              {
+                  "type": "header",
+                  "text": { "type": "plain_text", "text": "🚀 Deploy Status" } },
+              { 
+                "type":  "section",
+                "fields": [
+                  { "type": "mrkdwn", "text": "*Progress:*\n50%"},
+                  { "type": "mrkdwn", "text": "*Started by:*\n${{ github.actor }}" }
+                ]
+              },
+              { "type": "divider" },
+              {
+                "type": "section",
+                "text": { "type": "mrkdwn", "text": "2️⃣ Docker image pushed successfully" }
+              }
+            ]
+          }" \
           $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -87,7 +123,25 @@ jobs:
       - name: Notify Progress 75%
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data "{\"text\": \"🟠 *Progress 75%* — Starting EC2 deployment\"}" \
+          --data "{
+          "blocks": [
+              {
+                  "type": "header",
+                  "text": { "type": "plain_text", "text": "🚀 Deploy Status" } },
+              { 
+                "type":  "section",
+                "fields": [
+                  { "type": "mrkdwn", "text": "*Progress:*\n75%"},
+                  { "type": "mrkdwn", "text": "*Started by:*\n${{ github.actor }}" }
+                ]
+              },
+              { "type": "divider" },
+              {
+                "type": "section",
+                "text": { "type": "mrkdwn", "text": "3️⃣ Deploying to EC2 }
+              }
+            ]
+          }" \
           $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -133,8 +187,21 @@ jobs:
         if: success()
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data "{\"text\": \"🟢 *Progress 100%* — Deployment Successful! 🎉\"}" \
-          $SLACK_WEBHOOK_URL
+          --data "{
+            "blocks": [
+                {
+                    "type": "header",
+                    "text": { "type": "plain_text", "text": "🎉 Deployment Successful!" } },
+                { 
+                  "type":  "section",
+                  "fields": [
+                    { "type": "mrkdwn", "text": "*Progress:*\n100%"},
+                    { "type": "mrkdwn", "text": "*Started by:*\n${{ github.actor }}" }
+                  ]
+                }
+              ]
+            }" \
+            $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 

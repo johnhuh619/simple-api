@@ -107,7 +107,7 @@ jobs:
     needs: build-and-push
     steps:
 
-      # 1. Slack 승인 버튼 전송.
+      # 1. Slack 승인 버튼 전송
       - name: Request deploy approval
         run: |
           curl -X POST -H 'Content-type: application/json' \

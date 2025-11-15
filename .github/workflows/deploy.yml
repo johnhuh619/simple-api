@@ -68,6 +68,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-push
     steps:
+      # deploy start
+      - name: Notify deploy Start
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data "{\"text\": \"🚀deploy started by *${{github.actor}}*\"}" \
+          $SLACK_WEBHOOK_URL
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      # deploy
       - name: SSH to AWS EC2 and deploy container
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -101,3 +110,21 @@ jobs:
               docker rm simple-api || true
               exit 1
             fi
+      # deploy success
+      - name: Notify deploy success
+        if: success()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data "{\"text\": \"✅ Deployment succeeded!\"}" \
+          $SLACK_WEBHOOK_URL
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      # deploy fail
+      - name: Notify deploy failure
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data "{\"text\": \"❌ Deployment failed! Check logs.\"}" \
+          $SLACK_WEBHOOK_URL
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

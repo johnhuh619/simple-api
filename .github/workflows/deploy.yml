@@ -171,7 +171,8 @@ jobs:
                 ports:
                   - "8080:8080"
                 volumes:
-                  - ./data:/app/data
+                  - feedback-data:/app/data
+                  - feedback-logs:/app/logs
                 environment:
                   - SPRING_PROFILES_ACTIVE=prod
                   - JAVA_OPTS=-Xmx512m -Xms256m
@@ -189,6 +190,18 @@ jobs:
                   timeout: 10s
                   retries: 3
                   start_period: 40s
+                networks:
+                  - feedback-network
+
+            volumes:
+              feedback-data:
+                name: feedback-data
+              feedback-logs:
+                name: feedback-logs
+
+            networks:
+              feedback-network:
+                driver: bridge
             EOF
 
             echo "💾 Backing up database from Docker volume..."
@@ -244,8 +257,8 @@ jobs:
               echo "✅ Deployment succeeded!"
               echo "📊 Container status:"
               docker compose ps
-              echo "💾 Data directory:"
-              ls -lh data/
+              echo "💾 Database in volume:"
+              docker run --rm -v feedback-data:/data alpine ls -lh /data/feedbackdb.mv.db 2>/dev/null || echo "Database file not yet created"
 
               echo "🔓 Logging out from GHCR..."
               docker logout ghcr.io

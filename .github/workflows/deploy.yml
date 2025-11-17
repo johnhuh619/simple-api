@@ -180,16 +180,24 @@ jobs:
 
       - name: SSH to AWS EC2 and deploy container
         uses: appleboy/ssh-action@v0.1.10
+        env:
+          GHCR_TOKEN: ${{ secrets.GHCR_PAT }}
+          GHCR_USER: ${{ github.actor }}
+          IMAGE_REPO: ghcr.io/${{ github.repository }}
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_SSH_KEY }}
+          envs: GHCR_TOKEN,GHCR_USER,IMAGE_REPO
           script: |
             set -e
 
             echo "📁 Creating necessary directories..."
             mkdir -p ~/feedback-api/{data,logs}
             cd ~/feedback-api
+
+            echo "🔐 Logging in to GitHub Container Registry..."
+            echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
 
             echo "📝 Creating docker-compose.yml..."
             cat > docker-compose.yml << 'EOF'
@@ -219,7 +227,7 @@ jobs:
             EOF
 
             echo "📦 Pulling latest image..."
-            docker pull ghcr.io/${{ github.repository }}:latest
+            docker pull "$IMAGE_REPO:latest"
 
             echo "🛑 Stopping old containers..."
             docker compose down || true
@@ -237,11 +245,15 @@ jobs:
               docker compose ps
               echo "💾 Data directory:"
               ls -lh data/
+
+              echo "🔓 Logging out from GHCR..."
+              docker logout ghcr.io
             else
               echo "❌ Deployment failed! Checking logs..."
               docker compose logs --tail=50
               echo "🔄 Rolling back..."
               docker compose down
+              docker logout ghcr.io
               exit 1
             fi
 

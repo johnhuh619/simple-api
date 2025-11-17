@@ -198,10 +198,24 @@ jobs:
 
             # 데이터베이스 백업 (있는 경우에만)
             if [ -f ~/feedback-api/data/feedbackdb.mv.db ]; then
-              cp -r ~/feedback-api/data/feedbackdb.mv.db "$BACKUP_DIR/feedbackdb_$TIMESTAMP.mv.db"
-              echo "✅ Database backed up to $BACKUP_DIR/feedbackdb_$TIMESTAMP.mv.db"
+              BACKUP_FILE="feedbackdb_$TIMESTAMP.mv.db"
+              cp -r ~/feedback-api/data/feedbackdb.mv.db "$BACKUP_DIR/$BACKUP_FILE"
+              echo "✅ Database backed up to $BACKUP_DIR/$BACKUP_FILE"
 
-              # 7일 이상 된 백업 자동 삭제
+              # S3 업로드 (EC2 IAM Role 사용)
+              echo "☁️ Uploading backup to S3..."
+              aws s3 cp "$BACKUP_DIR/$BACKUP_FILE" \
+                "s3://feedback-api-backups/$(date +%Y/%m/%d)/$BACKUP_FILE" \
+                --region ap-northeast-2 \
+                --storage-class STANDARD_IA
+
+              if [ $? -eq 0 ]; then
+                echo "✅ Backup uploaded to S3"
+              else
+                echo "⚠️ S3 upload failed, but local backup exists"
+              fi
+
+              # 로컬 백업: 7일 이상 된 것만 삭제 (S3에는 있으므로)
               find $BACKUP_DIR -name "feedbackdb_*.mv.db" -mtime +7 -delete
             else
               echo "⚠️ No database found, skipping backup"

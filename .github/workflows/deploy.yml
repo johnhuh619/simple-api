@@ -160,8 +160,6 @@ jobs:
                 environment:
                   - SPRING_PROFILES_ACTIVE=prod
                   - JAVA_OPTS=-Xmx512m -Xms256m
-                  - SPRING_DATASOURCE_URL=jdbc:h2:file:/app/data/feedbackdb
-                  - LOGGING_FILE_NAME=/app/logs/feedback-api.log
                 restart: unless-stopped
                 healthcheck:
                   test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]

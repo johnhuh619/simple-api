@@ -139,6 +139,10 @@ jobs:
 
             echo "📁 Creating necessary directories..."
             mkdir -p ~/feedback-api/{data,logs}
+
+            echo "🔑 Setting directory permissions for container user (UID 1001)..."
+            sudo chown -R 1001:1001 ~/feedback-api/data ~/feedback-api/logs
+
             cd ~/feedback-api
 
             echo "🔐 Logging in to GitHub Container Registry..."

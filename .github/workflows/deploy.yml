@@ -65,6 +65,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
+      - name: Save current latest as previous
+        continue-on-error: true
+        run: |
+          # Pull current latest image
+          docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest || echo "No previous image found"
+
+          # Re-tag as previous
+          docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:previous || echo "Skipping tag"
+
+          # Push previous tag
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:previous || echo "Skipping push"
+
       - name: Extract metadata (tags)
         id: meta
         uses: docker/metadata-action@v5
@@ -178,6 +190,22 @@ jobs:
                   retries: 3
                   start_period: 40s
             EOF
+
+            echo "💾 Backing up database..."
+            BACKUP_DIR=~/feedback-api/backups
+            TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+            mkdir -p $BACKUP_DIR
+
+            # 데이터베이스 백업 (있는 경우에만)
+            if [ -f ~/feedback-api/data/feedbackdb.mv.db ]; then
+              cp -r ~/feedback-api/data/feedbackdb.mv.db "$BACKUP_DIR/feedbackdb_$TIMESTAMP.mv.db"
+              echo "✅ Database backed up to $BACKUP_DIR/feedbackdb_$TIMESTAMP.mv.db"
+
+              # 7일 이상 된 백업 자동 삭제
+              find $BACKUP_DIR -name "feedbackdb_*.mv.db" -mtime +7 -delete
+            else
+              echo "⚠️ No database found, skipping backup"
+            fi
 
             echo "📦 Pulling latest image..."
             docker pull "$IMAGE_REPO:latest"

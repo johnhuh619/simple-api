@@ -149,13 +149,13 @@ jobs:
           script: |
             set -e
 
-            echo "📁 Creating necessary directories..."
-            mkdir -p ~/feedback-api/{data,logs}
-
-            echo "🔑 Setting directory permissions for container user (UID 1001)..."
-            sudo chown -R 1001:1001 ~/feedback-api/data ~/feedback-api/logs
-
+            echo "📁 Preparing deployment directory..."
+            mkdir -p ~/feedback-api
             cd ~/feedback-api
+
+            echo "🔄 Ensuring Docker volumes exist..."
+            docker volume create feedback-data 2>/dev/null || true
+            docker volume create feedback-logs 2>/dev/null || true
 
             echo "🔐 Logging in to GitHub Container Registry..."
             echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
@@ -191,15 +191,21 @@ jobs:
                   start_period: 40s
             EOF
 
-            echo "💾 Backing up database..."
+            echo "💾 Backing up database from Docker volume..."
             BACKUP_DIR=~/feedback-api/backups
             TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+            BACKUP_FILE="feedbackdb_$TIMESTAMP.mv.db"
             mkdir -p $BACKUP_DIR
 
-            # 데이터베이스 백업 (있는 경우에만)
-            if [ -f ~/feedback-api/data/feedbackdb.mv.db ]; then
-              BACKUP_FILE="feedbackdb_$TIMESTAMP.mv.db"
-              cp -r ~/feedback-api/data/feedbackdb.mv.db "$BACKUP_DIR/$BACKUP_FILE"
+            # Docker volume에서 데이터 복사
+            # 임시 컨테이너를 사용하여 volume 데이터에 접근
+            docker run --rm \
+              -v feedback-data:/data:ro \
+              -v $BACKUP_DIR:/backup \
+              alpine \
+              sh -c "if [ -f /data/feedbackdb.mv.db ]; then cp /data/feedbackdb.mv.db /backup/$BACKUP_FILE; echo 'copied'; else echo 'not found'; fi" > /tmp/backup_result.txt
+
+            if grep -q "copied" /tmp/backup_result.txt; then
               echo "✅ Database backed up to $BACKUP_DIR/$BACKUP_FILE"
 
               # S3 업로드 (EC2 IAM Role 사용)
@@ -218,7 +224,7 @@ jobs:
               # 로컬 백업: 7일 이상 된 것만 삭제 (S3에는 있으므로)
               find $BACKUP_DIR -name "feedbackdb_*.mv.db" -mtime +7 -delete
             else
-              echo "⚠️ No database found, skipping backup"
+              echo "⚠️ No database found in volume, skipping backup"
             fi
 
             echo "📦 Pulling latest image..."

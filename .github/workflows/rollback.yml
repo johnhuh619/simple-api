@@ -86,12 +86,21 @@ jobs:
             LATEST_BACKUP=$(ls -t ~/feedback-api/backups/feedbackdb_*.mv.db 2>/dev/null | head -n 1)
 
             if [ -n "$LATEST_BACKUP" ]; then
-              echo "📦 Backing up current database..."
-              cp ~/feedback-api/data/feedbackdb.mv.db ~/feedback-api/data/feedbackdb_before_rollback.mv.db
+              echo "📦 Backing up current database from volume..."
+              docker run --rm \
+                -v feedback-data:/data \
+                -v ~/feedback-api/backups:/backup \
+                alpine \
+                cp /data/feedbackdb.mv.db /backup/feedbackdb_before_rollback.mv.db 2>/dev/null || true
 
               echo "⏮ Restoring database from backup: $LATEST_BACKUP"
-              cp "$LATEST_BACKUP" ~/feedback-api/data/feedbackdb.mv.db
-              echo "✅ Database restored"
+              docker run --rm \
+                -v feedback-data:/data \
+                -v ~/feedback-api/backups:/backup \
+                alpine \
+                sh -c "cp /backup/$(basename $LATEST_BACKUP) /data/feedbackdb.mv.db && chown 1001:1001 /data/feedbackdb.mv.db"
+
+              echo "✅ Database restored to volume"
             else
               echo "⚠️ No backup found, keeping current database"
             fi

@@ -10,10 +10,10 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      # H2 Database persistence
-      - ./data:/app/data
-      # Log files persistence
-      - ./logs:/app/logs
+      # H2 Database persistence (Docker volume)
+      - feedback-data:/app/data
+      # Log files persistence (Docker volume)
+      - feedback-logs:/app/logs
     environment:
       # Spring profiles
       - SPRING_PROFILES_ACTIVE=prod
@@ -32,6 +32,12 @@ services:
       start_period: 40s
     networks:
       - feedback-network
+
+volumes:
+  feedback-data:
+    name: feedback-data
+  feedback-logs:
+    name: feedback-logs
 
 networks:
   feedback-network:

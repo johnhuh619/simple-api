@@ -14,7 +14,6 @@ env:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    if : github.event_name == 'push'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -79,7 +78,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: docker/Dockerfile
+          file: Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -105,62 +104,61 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build-and-push
-    if: github.event_name == 'push' || github.event_name == 'repository_dispatch'
     steps:
 
       # 1. Slack 승인 버튼 전송
-      - name: Request deploy approval
-        run: |
-          curl -X POST -H 'Content-type: application/json' \
-          --data '{
-            "blocks": [
-              {
-                "type": "header",
-                "text": {
-                  "type": "plain_text",
-                  "text": "🚀 배포 승인 요청"
-                }
-              },
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "*${{ github.actor }}* 님이 배포를 요청했습니다.\n승인하시겠습니까?"
-                }
-              },
-              {
-                "type": "actions",
-                "elements": [
-                  {
-                    "type": "button",
-                    "text": { "type": "plain_text", "text": "✔ 승인" },
-                    "style": "primary",
-                    "value": "approve_deploy"
-                  },
-                  {
-                    "type": "button",
-                    "text": { "type": "plain_text", "text": "❌ 취소" },
-                    "style": "danger",
-                    "value": "reject_deploy"
-                  }
-                ]
-              }
-            ]
-          }' \
-          $SLACK_WEBHOOK_URL
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#      - name: Request deploy approval
+#        run: |
+#          curl -X POST -H 'Content-type: application/json' \
+#          --data '{
+#            "blocks": [
+#              {
+#                "type": "header",
+#                "text": {
+#                  "type": "plain_text",
+#                  "text": "🚀 배포 승인 요청"
+#                }
+#              },
+#              {
+#                "type": "section",
+#                "text": {
+#                  "type": "mrkdwn",
+#                  "text": "*${{ github.actor }}* 님이 배포를 요청했습니다.\n승인하시겠습니까?"
+#                }
+#              },
+#              {
+#                "type": "actions",
+#                "elements": [
+#                  {
+#                    "type": "button",
+#                    "text": { "type": "plain_text", "text": "✔ 승인" },
+#                    "style": "primary",
+#                    "value": "approve_deploy"
+#                  },
+#                  {
+#                    "type": "button",
+#                    "text": { "type": "plain_text", "text": "❌ 취소" },
+#                    "style": "danger",
+#                    "value": "reject_deploy"
+#                  }
+#                ]
+#              }
+#            ]
+#          }' \
+#          $SLACK_WEBHOOK_URL
+#        env:
+#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       # 2. 승인 대기
-      - name: Wait for approval
-        run: |
-          echo "⏳ 배포 승인 대기 중..."
-          for i in {1..30}
-          do
-            echo "Waiting... ($i/30)"
-            sleep 10
-          done
-          echo "⚠ 승인 신호(deploy_approved)가 오지 않았습니다."
-          exit 1
+#      - name: Wait for approval
+#        run: |
+#          echo "⏳ 배포 승인 대기 중..."
+#          for i in {1..30}
+#          do
+#            echo "Waiting... ($i/30)"
+#            sleep 10
+#          done
+#          echo "⚠ 승인 신호(deploy_approved)가 오지 않았습니다."
+#          exit 1
 
       - name: Notify Progress 75%
         run: |
@@ -188,29 +186,62 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
             set -e
+
+            echo "📁 Creating necessary directories..."
+            mkdir -p ~/feedback-api/{data,logs}
+            cd ~/feedback-api
+
+            echo "📝 Creating docker-compose.yml..."
+            cat > docker-compose.yml << 'EOF'
+            version: "3.8"
+
+            services:
+              feedback-api:
+                image: ghcr.io/${{ github.repository }}:latest
+                container_name: feedback-api
+                ports:
+                  - "8080:8080"
+                volumes:
+                  - ./data:/app/data
+                  - ./logs:/app/logs
+                environment:
+                  - SPRING_PROFILES_ACTIVE=prod
+                  - JAVA_OPTS=-Xmx512m -Xms256m
+                  - SPRING_DATASOURCE_URL=jdbc:h2:file:/app/data/feedbackdb
+                  - LOGGING_FILE_NAME=/app/logs/feedback-api.log
+                restart: unless-stopped
+                healthcheck:
+                  test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]
+                  interval: 30s
+                  timeout: 10s
+                  retries: 3
+                  start_period: 40s
+            EOF
+
             echo "📦 Pulling latest image..."
             docker pull ghcr.io/${{ github.repository }}:latest
 
-            echo "🛑 Stopping old container..."
-            docker stop simple-api || true
-            docker rm simple-api || true
+            echo "🛑 Stopping old containers..."
+            docker compose down || true
 
-            echo "🚀 Running new container..."
-            docker run -d \
-              --name simple-api \
-              -p 8080:8080 \
-              ghcr.io/${{ github.repository }}:latest
+            echo "🚀 Starting new container with docker-compose..."
+            docker compose up -d
 
             echo "⏱ Waiting for app to start..."
-            sleep 30
+            sleep 40
 
             echo "🩺 Running health check..."
             if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
               echo "✅ Deployment succeeded!"
+              echo "📊 Container status:"
+              docker compose ps
+              echo "💾 Data directory:"
+              ls -lh data/
             else
-              echo "❌ Deployment failed! Rolling back..."
-              docker stop simple-api || true
-              docker rm simple-api || true
+              echo "❌ Deployment failed! Checking logs..."
+              docker compose logs --tail=50
+              echo "🔄 Rolling back..."
+              docker compose down
               exit 1
             fi
 

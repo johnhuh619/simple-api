@@ -1,5 +1,5 @@
 name: Simple API CI/CD
-# 기본 배포
+# 기본 배포이빈다
 on:
   push:
     branches:

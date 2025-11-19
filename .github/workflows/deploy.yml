@@ -275,8 +275,8 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*🚨 Deploy Failed*\n`<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Check Logs Now>"
-                }`
+                  "text": "*🚨 Deploy Failed*\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Check Logs Now>"
+                }
               }
             ]
           }' \

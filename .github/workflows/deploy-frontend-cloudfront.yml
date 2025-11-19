@@ -46,10 +46,12 @@ jobs:
       - name: Get S3 bucket name
         id: get-bucket
         run: |
-          BUCKET_NAME=$(aws cloudfront get-distribution \
+          BUCKET_DOMAIN=$(aws cloudfront get-distribution \
             --id ${{ steps.find-cf.outputs.distribution_id }} \
             --query "Distribution.DistributionConfig.Origins.Items[?contains(DomainName, 's3')].DomainName | [0]" \
-            --output text | sed 's/.s3.*.amazonaws.com//')
+            --output text)
+
+          BUCKET_NAME=${BUCKET_DOMAIN%%.s3.*.amazonaws.com}
 
           echo "bucket=$BUCKET_NAME" >> $GITHUB_OUTPUT
           echo "S3 Bucket: $BUCKET_NAME"

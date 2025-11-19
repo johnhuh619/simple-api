@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'frontend/**'
+      - 'src/main/resources/static/**'
   workflow_dispatch:
 
 env:

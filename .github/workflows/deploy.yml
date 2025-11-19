@@ -38,7 +38,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build jar
-        run: ./gradlew bootJar --no-daemon
+        run: ./gradlew clean bootJar --no-daemon --no-build-cache
 
       - name: Notify Progress 25%
         run: |
@@ -94,6 +94,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          no-cache: true
 
       - name: Notify Progress 50%
         run: |
@@ -161,8 +162,6 @@ jobs:
 
             echo "📝 Creating docker-compose.yml..."
             cat > docker-compose.yml << 'EOF'
-            version: "3.8"
-
             services:
               feedback-api:
                 image: ghcr.io/${{ github.repository }}:latest
@@ -199,6 +198,7 @@ jobs:
             volumes:
               feedback-logs:
                 name: feedback-logs
+                external: true
 
             networks:
               feedback-network:

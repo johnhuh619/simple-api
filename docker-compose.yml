@@ -13,6 +13,8 @@ services:
     environment:
       # Spring profiles
       - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.MySQLDialect
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQLDialect
       # JVM options
       - JAVA_OPTS=-Xmx512m -Xms256m
       # RDS MySQL connection (환경 변수 필수 - .env 파일 또는 GitHub Secrets 사용)

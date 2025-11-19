@@ -172,6 +172,8 @@ jobs:
                   - feedback-logs:/app/logs
                 environment:
                   - SPRING_PROFILES_ACTIVE=prod
+                  - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.MySQLDialect
+                  - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQLDialect
                   - JAVA_OPTS=-Xmx512m -Xms256m
                   - DB_HOST=${{ secrets.DB_HOST }}
                   - DB_PORT=${{ secrets.DB_PORT }}

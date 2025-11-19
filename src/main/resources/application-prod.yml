@@ -22,6 +22,11 @@ spring:
         format_sql: true
         show_sql: false
         use_sql_comments: false
+        # MySQL 8.0 SEQUENCES 테이블 문제 해결
+        dialect:
+          database_minor_version: 0
+        temp:
+          use_jdbc_metadata_defaults: false
     open-in-view: false
 
   # 정적 리소스 비활성화 (CloudFront에서 S3로 서빙)

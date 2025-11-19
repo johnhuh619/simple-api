@@ -10,8 +10,6 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      # H2 Database persistence (Docker volume)
-      - feedback-data:/app/data
       # Log files persistence (Docker volume)
       - feedback-logs:/app/logs
     environment:
@@ -19,8 +17,12 @@ services:
       - SPRING_PROFILES_ACTIVE=prod
       # JVM options
       - JAVA_OPTS=-Xmx512m -Xms256m
-      # Database path (already in application.yml, but can override)
-      - SPRING_DATASOURCE_URL=jdbc:h2:file:/app/data/feedbackdb;DB_CLOSE_EXIT=FALSE;AUTO_RECONNECT=TRUE
+      # RDS MySQL connection (환경 변수 필수 - .env 파일 또는 GitHub Secrets 사용)
+      - DB_HOST=${DB_HOST:?DB_HOST is required}
+      - DB_PORT=${DB_PORT:-3306}
+      - DB_NAME=${DB_NAME:-feedbackdb}
+      - DB_USER=${DB_USER:?DB_USER is required}
+      - DB_PASSWORD=${DB_PASSWORD:?DB_PASSWORD is required}
       # Logging
       - LOGGING_FILE_NAME=/app/logs/feedback-api.log
     restart: unless-stopped
@@ -34,8 +36,6 @@ services:
       - feedback-network
 
 volumes:
-  feedback-data:
-    name: feedback-data
   feedback-logs:
     name: feedback-logs
 

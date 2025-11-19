@@ -154,7 +154,6 @@ jobs:
             cd ~/feedback-api
 
             echo "🔄 Ensuring Docker volumes exist..."
-            docker volume create feedback-data 2>/dev/null || true
             docker volume create feedback-logs 2>/dev/null || true
 
             echo "🔐 Logging in to GitHub Container Registry..."
@@ -171,11 +170,15 @@ jobs:
                 ports:
                   - "8080:8080"
                 volumes:
-                  - feedback-data:/app/data
                   - feedback-logs:/app/logs
                 environment:
                   - SPRING_PROFILES_ACTIVE=prod
                   - JAVA_OPTS=-Xmx512m -Xms256m
+                  - DB_HOST=${{ secrets.DB_HOST }}
+                  - DB_PORT=${{ secrets.DB_PORT }}
+                  - DB_NAME=${{ secrets.DB_NAME }}
+                  - DB_USER=${{ secrets.DB_USER }}
+                  - DB_PASSWORD=${{ secrets.DB_PASSWORD }}
                 restart: unless-stopped
                 logging:
                   driver: awslogs
@@ -194,8 +197,6 @@ jobs:
                   - feedback-network
 
             volumes:
-              feedback-data:
-                name: feedback-data
               feedback-logs:
                 name: feedback-logs
 
@@ -204,41 +205,7 @@ jobs:
                 driver: bridge
             EOF
 
-            echo "💾 Backing up database from Docker volume..."
-            BACKUP_DIR=~/feedback-api/backups
-            TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-            BACKUP_FILE="feedbackdb_$TIMESTAMP.mv.db"
-            mkdir -p $BACKUP_DIR
-
-            # Docker volume에서 데이터 복사
-            # 임시 컨테이너를 사용하여 volume 데이터에 접근
-            docker run --rm \
-              -v feedback-data:/data:ro \
-              -v $BACKUP_DIR:/backup \
-              alpine \
-              sh -c "if [ -f /data/feedbackdb.mv.db ]; then cp /data/feedbackdb.mv.db /backup/$BACKUP_FILE; echo 'copied'; else echo 'not found'; fi" > /tmp/backup_result.txt
-
-            if grep -q "copied" /tmp/backup_result.txt; then
-              echo "✅ Database backed up to $BACKUP_DIR/$BACKUP_FILE"
-
-              # S3 업로드 (EC2 IAM Role 사용)
-              echo "☁️ Uploading backup to S3..."
-              aws s3 cp "$BACKUP_DIR/$BACKUP_FILE" \
-                "s3://feedback-api-backups-396468676673/$(date +%Y/%m/%d)/$BACKUP_FILE" \
-                --region ap-northeast-2 \
-                --storage-class STANDARD_IA
-
-              if [ $? -eq 0 ]; then
-                echo "✅ Backup uploaded to S3"
-              else
-                echo "⚠️ S3 upload failed, but local backup exists"
-              fi
-
-              # 로컬 백업: 7일 이상 된 것만 삭제 (S3에는 있으므로)
-              find $BACKUP_DIR -name "feedbackdb_*.mv.db" -mtime +7 -delete
-            else
-              echo "⚠️ No database found in volume, skipping backup"
-            fi
+            echo "ℹ️  Using RDS MySQL - no local database backup needed"
 
             echo "📦 Pulling latest image..."
             docker pull "$IMAGE_REPO:latest"
@@ -257,8 +224,7 @@ jobs:
               echo "✅ Deployment succeeded!"
               echo "📊 Container status:"
               docker compose ps
-              echo "💾 Database in volume:"
-              docker run --rm -v feedback-data:/data alpine ls -lh /data/feedbackdb.mv.db 2>/dev/null || echo "Database file not yet created"
+              echo "💾 Database: Using RDS MySQL"
 
               echo "🔓 Logging out from GHCR..."
               docker logout ghcr.io
@@ -309,8 +275,8 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*🚨 Deploy Failed*\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Check Logs Now>"
-                }
+                  "text": "*🚨 Deploy Failed*\n`<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Check Logs Now>"
+                }`
               }
             ]
           }' \

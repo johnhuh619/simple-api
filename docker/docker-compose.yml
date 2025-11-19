@@ -1,8 +1,0 @@
-version: "3.8"
-services:
-  app:
-    image: ghcr.io/github.com/johnhuh619/simple-api/settings/secrets/actions
-    container_name: simple-api
-    ports:
-      - "8080:8080"
-    restart: always

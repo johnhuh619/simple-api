@@ -38,6 +38,7 @@ services:
 volumes:
   feedback-logs:
     name: feedback-logs
+    external: true
 
 networks:
   feedback-network:

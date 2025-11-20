@@ -1,0 +1,711 @@
+2025-11-17T13:30:12.299+09:00  INFO 7592 --- [Test worker] c.j.p.s.SimpleApiApplicationTests        : Starting SimpleApiApplicationTests using Java 21.0.2 with PID 7592 (started by Jaewon in C:\2025proj\simple-api)
+2025-11-17T13:30:12.301+09:00  INFO 7592 --- [Test worker] c.j.p.s.SimpleApiApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2025-11-17T13:30:15.014+09:00  INFO 7592 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-17T13:30:15.103+09:00  INFO 7592 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 1 JPA repository interface.
+2025-11-17T13:30:16.080+09:00  INFO 7592 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-17T13:30:16.176+09:00  INFO 7592 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-17T13:30:16.223+09:00  INFO 7592 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-17T13:30:16.570+09:00  INFO 7592 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-17T13:30:16.602+09:00  INFO 7592 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-17T13:30:16.844+09:00  INFO 7592 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/feedbackdb user=SA
+2025-11-17T13:30:16.847+09:00  INFO 7592 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-17T13:30:16.915+09:00  INFO 7592 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-17T13:30:17.705+09:00  INFO 7592 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-17T13:30:17.761+09:00  INFO 7592 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-17T13:30:18.903+09:00  WARN 7592 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-17T13:30:19.980+09:00  INFO 7592 --- [Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/feedbackdb'
+2025-11-17T13:30:20.024+09:00  INFO 7592 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-17T13:30:20.166+09:00  INFO 7592 --- [Test worker] c.j.p.s.SimpleApiApplicationTests        : Started SimpleApiApplicationTests in 8.405 seconds (process running for 10.351)
+2025-11-17T13:30:20.731+09:00  INFO 7592 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-17T13:30:20.731+09:00  INFO 7592 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-17T13:30:20.731+09:00  INFO 7592 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-17T13:38:50.489+09:00  INFO 24456 --- [Test worker] c.j.p.s.SimpleApiApplicationTests        : Starting SimpleApiApplicationTests using Java 21.0.2 with PID 24456 (started by Jaewon in C:\2025proj\simple-api)
+2025-11-17T13:38:50.489+09:00  INFO 24456 --- [Test worker] c.j.p.s.SimpleApiApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2025-11-17T13:38:51.953+09:00  INFO 24456 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-17T13:38:52.032+09:00  INFO 24456 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 1 JPA repository interface.
+2025-11-17T13:38:53.084+09:00  INFO 24456 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-17T13:38:53.242+09:00  INFO 24456 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-17T13:38:53.289+09:00  INFO 24456 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-17T13:38:53.635+09:00  INFO 24456 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-17T13:38:53.650+09:00  INFO 24456 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-17T13:38:53.832+09:00  INFO 24456 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/feedbackdb user=SA
+2025-11-17T13:38:53.835+09:00  INFO 24456 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-17T13:38:53.883+09:00  INFO 24456 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-17T13:38:54.516+09:00  INFO 24456 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-17T13:38:54.555+09:00  INFO 24456 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-17T13:38:55.875+09:00  WARN 24456 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-17T13:38:55.959+09:00  INFO 24456 --- [Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-11-17T13:38:57.341+09:00  INFO 24456 --- [Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/feedbackdb'
+2025-11-17T13:38:57.359+09:00  INFO 24456 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-17T13:38:57.541+09:00  INFO 24456 --- [Test worker] c.j.p.s.SimpleApiApplicationTests        : Started SimpleApiApplicationTests in 7.389 seconds (process running for 8.566)
+2025-11-17T13:38:57.994+09:00  INFO 24456 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-17T13:38:57.994+09:00  INFO 24456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-17T13:38:57.994+09:00  INFO 24456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-17T14:06:39.283+09:00  INFO 4376 --- [main] c.j.p.simpleapi.SimpleApiApplication     : Starting SimpleApiApplication using Java 21.0.2 with PID 4376 (C:\2025proj\simple-api\build\classes\java\main started by Jaewon in C:\2025proj\simple-api)
+2025-11-17T14:06:39.286+09:00  INFO 4376 --- [main] c.j.p.simpleapi.SimpleApiApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-11-17T14:06:40.261+09:00  INFO 4376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-17T14:06:40.301+09:00  INFO 4376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 1 JPA repository interface.
+2025-11-17T14:06:40.644+09:00  INFO 4376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-17T14:06:40.655+09:00  INFO 4376 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-17T14:06:40.655+09:00  INFO 4376 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-17T14:06:40.695+09:00  INFO 4376 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-17T14:06:40.695+09:00  INFO 4376 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1327 ms
+2025-11-17T14:06:40.891+09:00  INFO 4376 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-17T14:06:40.924+09:00  INFO 4376 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-17T14:06:40.950+09:00  INFO 4376 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-17T14:06:41.169+09:00  INFO 4376 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-17T14:06:41.190+09:00  INFO 4376 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-17T14:06:41.360+09:00  INFO 4376 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/feedbackdb user=SA
+2025-11-17T14:06:41.361+09:00  INFO 4376 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-17T14:06:41.408+09:00  INFO 4376 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-17T14:06:42.039+09:00  INFO 4376 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-17T14:06:42.082+09:00  INFO 4376 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-17T14:06:42.381+09:00  WARN 4376 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-17T14:06:42.396+09:00  INFO 4376 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-11-17T14:06:42.823+09:00  INFO 4376 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/feedbackdb'
+2025-11-17T14:06:42.837+09:00  INFO 4376 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-17T14:06:42.893+09:00  INFO 4376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-17T14:06:42.902+09:00  INFO 4376 --- [main] c.j.p.simpleapi.SimpleApiApplication     : Started SimpleApiApplication in 4.101 seconds (process running for 4.768)
+2025-11-17T14:06:43.286+09:00  INFO 4376 --- [RMI TCP Connection(4)-192.168.219.106] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-17T14:06:43.286+09:00  INFO 4376 --- [RMI TCP Connection(4)-192.168.219.106] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-17T14:06:43.288+09:00  INFO 4376 --- [RMI TCP Connection(4)-192.168.219.106] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-17T14:07:09.560+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/health from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:09.590+09:00 ERROR 4376 --- [http-nio-8080-exec-6] c.j.p.s.e.GlobalExceptionHandler         : Unexpected error occurred: 
+
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/health.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.48.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.48.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at com.jaewon.practice.simpleapi.filter.RequestLoggingFilter.doFilter(RequestLoggingFilter.java:36) ~[main/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-11-17T14:07:09.638+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/health - Status: 500 - Duration: 94ms
+2025-11-17T14:07:09.827+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /favicon.ico from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:09.827+09:00 ERROR 4376 --- [http-nio-8080-exec-2] c.j.p.s.e.GlobalExceptionHandler         : Unexpected error occurred: 
+
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.48.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.48.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at com.jaewon.practice.simpleapi.filter.RequestLoggingFilter.doFilter(RequestLoggingFilter.java:36) ~[main/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-11-17T14:07:09.827+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /favicon.ico - Status: 500 - Duration: 0ms
+2025-11-17T14:07:14.851+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.s.filter.RequestLoggingFilter      : Request: GET / from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:14.864+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.s.filter.RequestLoggingFilter      : Response: GET / - Status: 200 - Duration: 13ms
+2025-11-17T14:07:14.887+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /css/style.css from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:14.887+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /js/app.js from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:14.887+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /css/style.css - Status: 200 - Duration: 0ms
+2025-11-17T14:07:14.887+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /js/app.js - Status: 200 - Duration: 0ms
+2025-11-17T14:07:15.362+09:00  INFO 4376 --- [http-nio-8080-exec-5] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:15.368+09:00  INFO 4376 --- [http-nio-8080-exec-9] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /favicon.ico from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:15.370+09:00 ERROR 4376 --- [http-nio-8080-exec-9] c.j.p.s.e.GlobalExceptionHandler         : Unexpected error occurred: 
+
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.48.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.48.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at com.jaewon.practice.simpleapi.filter.RequestLoggingFilter.doFilter(RequestLoggingFilter.java:36) ~[main/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-11-17T14:07:15.370+09:00  INFO 4376 --- [http-nio-8080-exec-9] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /favicon.ico - Status: 500 - Duration: 2ms
+2025-11-17T14:07:15.392+09:00  INFO 4376 --- [http-nio-8080-exec-5] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:07:15.539+09:00 DEBUG 4376 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:07:15.584+09:00  INFO 4376 --- [http-nio-8080-exec-5] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 222ms
+2025-11-17T14:07:31.563+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:31.657+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: 허재원, message length: 4
+2025-11-17T14:07:31.706+09:00 DEBUG 4376 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:07:31.731+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 1
+2025-11-17T14:07:31.746+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 183ms
+2025-11-17T14:07:31.751+09:00  INFO 4376 --- [http-nio-8080-exec-8] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:31.755+09:00  INFO 4376 --- [http-nio-8080-exec-8] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:07:31.757+09:00 DEBUG 4376 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:07:31.761+09:00  INFO 4376 --- [http-nio-8080-exec-8] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 10ms
+2025-11-17T14:07:43.011+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:43.017+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: 허재투, message length: 5
+2025-11-17T14:07:43.019+09:00 DEBUG 4376 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:07:43.020+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 2
+2025-11-17T14:07:43.022+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 11ms
+2025-11-17T14:07:43.024+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:43.024+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:07:43.031+09:00 DEBUG 4376 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:07:43.034+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 9ms
+2025-11-17T14:07:47.999+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:48.007+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.simpleapi.service.FeedbackService  : Fetching feedbacks by username: 투 - page: 0, size: 10
+2025-11-17T14:07:48.016+09:00 DEBUG 4376 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    where
+        f1_0.username=? 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:07:48.025+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 26ms
+2025-11-17T14:07:51.800+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:51.802+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.simpleapi.service.FeedbackService  : Fetching feedbacks by username: 허재투 - page: 0, size: 10
+2025-11-17T14:07:51.802+09:00 DEBUG 4376 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    where
+        f1_0.username=? 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:07:51.809+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 9ms
+2025-11-17T14:07:54.668+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:54.670+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.simpleapi.service.FeedbackService  : Fetching feedbacks by username: 허재 - page: 0, size: 10
+2025-11-17T14:07:54.672+09:00 DEBUG 4376 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    where
+        f1_0.username=? 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:07:54.675+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 7ms
+2025-11-17T14:07:57.331+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:07:57.331+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:07:57.331+09:00 DEBUG 4376 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:07:57.331+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 0ms
+2025-11-17T14:08:07.714+09:00  INFO 4376 --- [http-nio-8080-exec-9] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:07.721+09:00  INFO 4376 --- [http-nio-8080-exec-9] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: ㅓ, message length: 1
+2025-11-17T14:08:07.722+09:00 DEBUG 4376 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:08:07.723+09:00  INFO 4376 --- [http-nio-8080-exec-9] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 3
+2025-11-17T14:08:07.723+09:00  INFO 4376 --- [http-nio-8080-exec-9] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 9ms
+2025-11-17T14:08:07.732+09:00  INFO 4376 --- [http-nio-8080-exec-5] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:07.734+09:00  INFO 4376 --- [http-nio-8080-exec-5] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:08:07.734+09:00 DEBUG 4376 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:08:07.739+09:00  INFO 4376 --- [http-nio-8080-exec-5] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 7ms
+2025-11-17T14:08:17.577+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:17.577+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: 허재퉈, message length: 3
+2025-11-17T14:08:17.577+09:00 DEBUG 4376 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:08:17.577+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 4
+2025-11-17T14:08:17.577+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 0ms
+2025-11-17T14:08:17.593+09:00  INFO 4376 --- [http-nio-8080-exec-8] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:17.595+09:00  INFO 4376 --- [http-nio-8080-exec-8] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:08:17.596+09:00 DEBUG 4376 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:08:17.599+09:00  INFO 4376 --- [http-nio-8080-exec-8] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 6ms
+2025-11-17T14:08:19.832+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:19.832+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: 허재퉈, message length: 3
+2025-11-17T14:08:19.832+09:00 DEBUG 4376 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:08:19.832+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 5
+2025-11-17T14:08:19.832+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 0ms
+2025-11-17T14:08:19.849+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:19.851+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:08:19.852+09:00 DEBUG 4376 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:08:19.855+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 6ms
+2025-11-17T14:08:23.692+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:23.692+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: 허재퉈, message length: 3
+2025-11-17T14:08:23.692+09:00 DEBUG 4376 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:08:23.692+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 6
+2025-11-17T14:08:23.692+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 0ms
+2025-11-17T14:08:23.713+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:23.715+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:08:23.717+09:00 DEBUG 4376 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:08:23.720+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 7ms
+2025-11-17T14:08:25.702+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:25.702+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: null, message length: 1
+2025-11-17T14:08:25.702+09:00 DEBUG 4376 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:08:25.702+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 7
+2025-11-17T14:08:25.702+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 0ms
+2025-11-17T14:08:25.724+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:25.725+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:08:25.727+09:00 DEBUG 4376 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:08:25.732+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 8ms
+2025-11-17T14:08:32.794+09:00  INFO 4376 --- [http-nio-8080-exec-9] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:32.794+09:00  INFO 4376 --- [http-nio-8080-exec-9] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: 허재퉈, message length: 3
+2025-11-17T14:08:32.794+09:00 DEBUG 4376 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:08:32.794+09:00  INFO 4376 --- [http-nio-8080-exec-9] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 8
+2025-11-17T14:08:32.794+09:00  INFO 4376 --- [http-nio-8080-exec-9] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 0ms
+2025-11-17T14:08:32.812+09:00  INFO 4376 --- [http-nio-8080-exec-5] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:32.812+09:00  INFO 4376 --- [http-nio-8080-exec-5] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:08:32.812+09:00 DEBUG 4376 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:08:32.820+09:00  INFO 4376 --- [http-nio-8080-exec-5] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 8ms
+2025-11-17T14:08:37.584+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:37.584+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: 허재퉈, message length: 3
+2025-11-17T14:08:37.584+09:00 DEBUG 4376 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:08:37.584+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 9
+2025-11-17T14:08:37.584+09:00  INFO 4376 --- [http-nio-8080-exec-10] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 0ms
+2025-11-17T14:08:37.605+09:00  INFO 4376 --- [http-nio-8080-exec-8] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:37.607+09:00  INFO 4376 --- [http-nio-8080-exec-8] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:08:37.609+09:00 DEBUG 4376 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:08:37.612+09:00  INFO 4376 --- [http-nio-8080-exec-8] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 7ms
+2025-11-17T14:08:40.647+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:40.647+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: 허재퉈, message length: 3
+2025-11-17T14:08:40.647+09:00 DEBUG 4376 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:08:40.647+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 10
+2025-11-17T14:08:40.654+09:00  INFO 4376 --- [http-nio-8080-exec-7] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 7ms
+2025-11-17T14:08:40.654+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:40.654+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:08:40.663+09:00 DEBUG 4376 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:08:40.672+09:00 DEBUG 4376 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        count(f1_0.id) 
+    from
+        feedbacks f1_0
+2025-11-17T14:08:40.678+09:00  INFO 4376 --- [http-nio-8080-exec-6] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 24ms
+2025-11-17T14:08:42.680+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.s.filter.RequestLoggingFilter      : Request: POST /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:42.680+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.simpleapi.service.FeedbackService  : Creating feedback - username: 허재퉈, message length: 3
+2025-11-17T14:08:42.680+09:00 DEBUG 4376 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        feedbacks
+        (created_at, message, username, id) 
+    values
+        (?, ?, ?, default)
+2025-11-17T14:08:42.680+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.simpleapi.service.FeedbackService  : Feedback created successfully - id: 11
+2025-11-17T14:08:42.696+09:00  INFO 4376 --- [http-nio-8080-exec-2] c.j.p.s.filter.RequestLoggingFilter      : Response: POST /api/feedbacks - Status: 201 - Duration: 16ms
+2025-11-17T14:08:42.702+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:42.702+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:08:42.702+09:00 DEBUG 4376 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:08:42.709+09:00 DEBUG 4376 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        count(f1_0.id) 
+    from
+        feedbacks f1_0
+2025-11-17T14:08:42.711+09:00  INFO 4376 --- [http-nio-8080-exec-3] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 9ms
+2025-11-17T14:08:45.276+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:45.276+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 1, size: 10
+2025-11-17T14:08:45.276+09:00 DEBUG 4376 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+2025-11-17T14:08:45.285+09:00  INFO 4376 --- [http-nio-8080-exec-4] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 9ms
+2025-11-17T14:08:46.777+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.s.filter.RequestLoggingFilter      : Request: GET /api/feedbacks from 0:0:0:0:0:0:0:1
+2025-11-17T14:08:46.777+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.simpleapi.service.FeedbackService  : Fetching all feedbacks - page: 0, size: 10
+2025-11-17T14:08:46.784+09:00 DEBUG 4376 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.message,
+        f1_0.username 
+    from
+        feedbacks f1_0 
+    order by
+        f1_0.created_at desc 
+    fetch
+        first ? rows only
+2025-11-17T14:08:46.785+09:00 DEBUG 4376 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(f1_0.id) 
+    from
+        feedbacks f1_0
+2025-11-17T14:08:46.785+09:00  INFO 4376 --- [http-nio-8080-exec-1] c.j.p.s.filter.RequestLoggingFilter      : Response: GET /api/feedbacks - Status: 200 - Duration: 8ms
+2025-11-17T15:08:18.579+09:00  INFO 4376 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-17T15:08:18.583+09:00  INFO 4376 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-17T15:08:18.587+09:00  INFO 4376 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-17T15:08:18.589+09:00  INFO 4376 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-17T15:08:18.590+09:00  INFO 4376 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-17T15:09:48.140+09:00  INFO 15940 --- [Test worker] c.j.p.s.SimpleApiApplicationTests        : Starting SimpleApiApplicationTests using Java 21.0.2 with PID 15940 (started by Jaewon in C:\2025proj\simple-api)
+2025-11-17T15:09:48.140+09:00  INFO 15940 --- [Test worker] c.j.p.s.SimpleApiApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2025-11-17T15:09:49.977+09:00  INFO 15940 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-17T15:09:50.119+09:00  INFO 15940 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 114 ms. Found 1 JPA repository interface.
+2025-11-17T15:09:51.563+09:00  INFO 15940 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-17T15:09:51.780+09:00  INFO 15940 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-17T15:09:51.834+09:00  INFO 15940 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-17T15:09:52.219+09:00  INFO 15940 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-17T15:09:52.236+09:00  INFO 15940 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-17T15:09:52.433+09:00  INFO 15940 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/feedbackdb user=SA
+2025-11-17T15:09:52.436+09:00  INFO 15940 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-17T15:09:52.479+09:00  INFO 15940 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-17T15:09:53.169+09:00  INFO 15940 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-17T15:09:53.214+09:00  INFO 15940 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-17T15:09:54.427+09:00  WARN 15940 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-17T15:09:54.494+09:00  INFO 15940 --- [Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-11-17T15:09:55.782+09:00  INFO 15940 --- [Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/feedbackdb'
+2025-11-17T15:09:55.806+09:00  INFO 15940 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-17T15:09:55.922+09:00  INFO 15940 --- [Test worker] c.j.p.s.SimpleApiApplicationTests        : Started SimpleApiApplicationTests in 8.143 seconds (process running for 9.492)
+2025-11-17T15:09:56.384+09:00  INFO 15940 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-17T15:09:56.388+09:00  INFO 15940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-17T15:09:56.388+09:00  INFO 15940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,9 +1,14 @@
 # Simple API [배포 과정을 구현]
 
+## 관련 레포지토리
+- **프론트엔드**: https://github.com/johnhuh619/simple-api-frontend
+- **백엔드**: 현재 레포
+
 ## 프로젝트 한눈에 보기
 - Spring Boot 3.5와 Java 21을 사용하는 간단한 REST API입니다(`build.gradle`에서 확인).
 - CI/CD 파이프라인은 GitHub Actions → GHCR → AWS EC2 컨테이너 재배포 순서로 구성했습니다.
 - 로컬과 EC2 모두 Docker 기반으로 동일한 실행 환경을 맞추는 것을 목표로 했습니다.
+- 프론트엔드는 별도 레포로 분리되어 CloudFront + S3로 독립 배포됩니다.
 
 ## 파일별로 정리한 배운 점
 
